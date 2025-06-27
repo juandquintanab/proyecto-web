@@ -1,50 +1,22 @@
-# 📦 Mi Colección Pokémon - Proyecto Final de Programación Orientada a la Web
+# Mi Colección Pokémon 
 
 Aplicación web interactiva para coleccionar, visualizar e intercambiar cartas digitales de los primeros 150 Pokémon, inspirada en la experiencia de abrir sobres físicos. Desarrollada con HTML5, CSS3 y JavaScript puro, aprovechando la [PokeAPI](https://pokeapi.co/) y WebSockets para funcionalidades en tiempo real.
 
 ---
 
-## 🚀 Funcionalidades principales
+## Funcionalidades principales
 
-- **📇 Índice de cartas**  
+- ** Índice de cartas**  
   Visualiza una cuadrícula con los 150 Pokémon. Las cartas desbloqueadas muestran sus detalles, las no obtenidas están grisadas.
 
-- **🎁 Apertura de sobres**  
+- ** Apertura de sobres**  
   Genera 6 cartas aleatorias con animación. Se almacenan en `localStorage` y actualizan el progreso del jugador.
 
-- **🔁 Intercambio en tiempo real**  
+- ** Intercambio en tiempo real**  
   Dos usuarios pueden intercambiar cartas usando WebSockets. Ambos deben seleccionar una carta desbloqueada para hacer el intercambio.
 
-- **📱 Diseño responsive**  
+- ** Diseño responsive**  
   Optimizado para dispositivos móviles con enfoque *mobile first*.
-
----
-
-## 🗂️ Estructura del proyecto
-PROYECTO-WEB/
-│
-├── shared/
-│ ├── css/
-│ │ ├── globales.css
-│ │ └── descripcion.css
-│ └── js/
-│ └── navbar.js
-│
-├── views/
-│ ├── coleccion/
-│ │ ├── coleccion.html
-│ │ ├── coleccion.css
-│ │ └── coleccion.js
-│ ├── sobres/
-│ │ ├── sobres.html
-│ │ ├── sobres.css
-│ │ └── sobres.js
-│ └── intercambio/
-│ ├── intercambio.html
-│ ├── intercambio.css
-│ └── intercambio.js
-│
-└── README.md
 
 ---
 
