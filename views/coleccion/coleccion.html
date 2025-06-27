@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi Coleccion</title>
+        <link rel="stylesheet" href="./coleccion.css">
+
+        <link rel="stylesheet" href="../../shared/css/globales.css">
+        <link rel="stylesheet" href="../../shared/css/descripcion.css">
+
+    </head>
+
+    <body>
+        <header class="coleccion-header">
+            <h1 class="coleccion-titulo">Mi Colección</h1>
+            <p class="coleccion-contador" id="contador-cartas"></p>
+            <div class="busqueda-contenedor">
+                <input type="text" id="inputBusqueda" placeholder="Buscar Pokémon..." class="busqueda-input"/>
+            </div>
+        
+            <nav class="nav">    
+                <ul class="nav-list">
+                    <li class="nav-item"><button class="btn btn-header vtodos" id="vtodos">Todos</button></li>
+                    <li class="nav-Iten"><button class="btn btn-header normal" id="normal">Normal</button></li>
+                    <li class="nav-item"><button class="btn btn-header fire" id="fire">Fire</button></li>
+                    <li class="nav-item"><button class="btn btn-header water" id="water">Water</button></li>
+                    <li class="nav-iten"><button class="btn btn-header grass" id="grass">Grass</button></li>
+                    <li class="nav-item"><button class="btn btn-header electric" id="electric">Electric</button></li>
+                    <li class="nav-item"><button class="btn btn-header ice" id="ice">Ice</button></li>
+                    <li class="nav-iten"><button class="btn btn-header fighting" id="fighting">Fighting</button></li>
+                    <li class="nav-item"><button class="btn btn-header poison" id="poison">Poison</button></li>
+                    <li class="nav-item"><button class="btn btn-header ground" id="ground">Ground</button></li>
+                    <li class="nav-iten"><button class="btn btn-header flying" id="flying">Flying</button></li>
+                    <li class="nav-item"><button class="btn btn-header psychic" id="psychic">Psychic</button></li>
+                    <li class="nav-item"><button class="btn btn-header bug" id="bug">Bug</button></li>
+                    <li class="nav-item"><button class="btn btn-header rock" id="rock">Rock</button></li>
+                    <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Ghost</button></li>
+                    <li class="nav-item"><button class="btn btn-header dark" id="dark">Dark</button></li>
+                    <li class="nav-item"><button class="bth btn-header dragon" id="dragon">Dragon</button></li>
+                    <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
+                    <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
+                    <li class="nav-item"><button class="btn btn-header stellar" id="stella">Stellar</button></li>
+                </ul>
+            </nav>   
+            
+            <div class="progreso-contenedor">
+                <label for="progreso">Progreso</label>
+                <div class="progreso-info">
+                    <progress id="progreso" value="150" max="150"></progress>
+                    <span id="porcentaje-progreso">100%</span>
+                </div>
+            </div>
+
+        </header>
+
+        <main>
+            <div id="todos">
+                <div class="pokemon-todos" id="listaPokemon">
+                    <!-- JS llenará aquí -->
+                </div>
+            </div>    
+        </main>  
+        
+        <!-- Modal oculto por defecto -->
+        <div id="modal-pokemon" class="modal oculto">
+            <div class="modal-contenido">
+                <button class="modal-cerrar" id="cerrarModal">x</button>
+
+                <section class="pokemon-detalle">
+                    
+                    <div class="fila-superior">
+                        
+                        <div class="info-nombre">
+                            <p class="id" id="modal-id"></p>
+                            <h2 class="nombre" id="modal-nombre"></h2>
+                            <div class="tipo" id="modal-tipo"></div>
+                        </div>
+
+                        <figure class="imagen">
+                            <img id="modal-img" src="" alt="Pokemon">
+                        </figure>
+
+                    </div>
+
+                    <div class="info-basica">
+                        <div><strong>Peso:</strong> <span id="modal-peso"></span></div>
+                        <div><strong>Altura:</strong> <span id="modal-altura"></span></div>
+                    </div>
+
+                    <section class="descripcion">
+                        <h3>Descripción</h3>
+                        <p id="modal-descripcion"></p>
+                    </section>
+
+                    <section class="stats">
+                        <h3>Estadísticas</h3>
+                        <div class="stats-grid" id="modal-stats">
+                            <!-- JS llenará aquí -->
+                        </div>
+                    </section>
+
+                </section>
+            </div>
+        </div>
+
+
+        <nav class="nav-inferior">
+            <a href="../coleccion/coleccion.html" class="nav-link" data-page="coleccion">Colección</a>
+            <a href="../sobres/sobres.html" class="nav-link" data-page="sobres">Sobres</a>
+            <a href="../intercambio/intercambio.html" class="nav-link" data-page="intercambio">Intercambio</a>
+        </nav>
+
+        <script src="../../shared/js/navbar.js"></script>
+        <script src="./coleccion.js"></script>
+        
+    </body>
+</html>

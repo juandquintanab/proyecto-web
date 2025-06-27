@@ -1,0 +1,101 @@
+
+
+.pokemon-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  
+}
+
+.fila-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.info-nombre .id {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.info-nombre .nombre {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.tipo {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tipo p {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/*
+.tipo .grass { background-color: var(--type-grass); }
+.tipo .normal { background-color: var(--type-normal); }
+.tipo .fire { background-color: var(--type-fire); }
+.tipo .water { background-color: var(--type-water); }
+*/
+
+.imagen img {
+  max-width: 120px;
+  width: 100%;
+}
+
+.info-basica {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  background-color: var(--clr-gray);
+  border-radius: 0.5rem;
+}
+
+.descripcion h3,
+.stats h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.descripcion p {
+  background-color: var(--clr-gray);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-y: auto;
+  max-height: 150px;
+}
+
+/* Ocultar scrollbar */
+.descripcion p::-webkit-scrollbar {
+  display: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.stats-grid p {
+  background-color: var(--clr-gray);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+
