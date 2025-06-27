@@ -6,16 +6,16 @@ Aplicación web interactiva para coleccionar, visualizar e intercambiar cartas d
 
 ## Funcionalidades principales
 
-- ** Índice de cartas**  
+- **Índice de cartas**  
   Visualiza una cuadrícula con los 150 Pokémon. Las cartas desbloqueadas muestran sus detalles, las no obtenidas están grisadas.
 
-- ** Apertura de sobres**  
+- **Apertura de sobres**  
   Genera 6 cartas aleatorias con animación. Se almacenan en `localStorage` y actualizan el progreso del jugador.
 
-- ** Intercambio en tiempo real**  
+- **Intercambio en tiempo real**  
   Dos usuarios pueden intercambiar cartas usando WebSockets. Ambos deben seleccionar una carta desbloqueada para hacer el intercambio.
 
-- ** Diseño responsive**  
+- **Diseño responsive**  
   Optimizado para dispositivos móviles con enfoque *mobile first*.
 
 ---
