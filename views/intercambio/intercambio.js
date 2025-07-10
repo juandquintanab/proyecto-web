@@ -1,8 +1,7 @@
 // ✅ Ably: crea conexión y canal compartido
-const ably = new Ably.Realtime("bO3YUA.nawySw:rthGQwtfJ6c_T6BwDWs0bMBn9j4mVo6132tL11NTfKQ");
-const canal = ably.channels.get("intercambioPokemon");
-
-document.addEventListener("DOMContentLoaded", async () => {
+//const ably = new Ably.Realtime("bO3YUA.nawySw:rthGQwtfJ6c_T6BwDWs0bMBn9j4mVo6132tL11NTfKQ");
+//const canal = ably.channels.get("intercambioPokemon");
+/*document.addEventListener("DOMContentLoaded", async () => {
   const contenedorMisCartas = document.getElementById("misCartas");
   const contenedorCartasRecibidas = document.getElementById("cartasRecibidas");
   const btnIntercambio = document.getElementById("btnIntercambio");
@@ -132,4 +131,94 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 🔁 Inicializar visualización
   renderizarMisCartas();
+});*/
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const contenedorMisCartas = document.getElementById("misCartas");
+  const contenedorCartasRecibidas = document.getElementById("cartasRecibidas");
+  const btnIntercambio = document.getElementById("btnIntercambio");
+
+  // Arrays para las cartas seleccionadas
+  let cartasSeleccionadasUsuario = [];
+  let cartasSeleccionadasRecibidas = [];
+
+  const MAX_CARTAS = 5;
+
+  let idsDesbloqueados = JSON.parse(localStorage.getItem("pokemonesDesbloqueados")) || [];
+
+  if (idsDesbloqueados.length === 0) {
+    contenedorMisCartas.innerHTML = "<p>No tienes cartas desbloqueadas.</p>";
+    contenedorCartasRecibidas.innerHTML = "<p>No tienes cartas desbloqueadas.</p>";
+    return;
+  }
+
+  async function obtenerPokemon(id) {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    return await res.json();
+  }
+
+  function aplicarColoresPorTipo(div, tipos) {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const colores = tipos.map(tipo => rootStyles.getPropertyValue(`--type-${tipo}`));
+    if (colores.length === 1) {
+      div.style.background = colores[0];
+    } else if (colores.length >= 2) {
+      div.style.background = `linear-gradient(135deg, ${colores[0]}, ${colores[1]})`;
+    }
+  }
+
+  function crearCarta(pokeData, esRecibida = false) {
+    const div = document.createElement("div");
+    div.classList.add("carta");
+
+    const tipos = pokeData.types.map(t => t.type.name);
+    aplicarColoresPorTipo(div, tipos);
+
+    div.innerHTML =`
+      <img src="${pokeData.sprites.other["official-artwork"].front_default}" alt="${pokeData.name}">
+      <p class="nombre">${pokeData.name}</p>
+      <p class="id">#${pokeData.id.toString().padStart(3, "0")}</p>`
+    ;
+
+    div.addEventListener("click", () => {
+      const grupo = esRecibida ? cartasSeleccionadasRecibidas : cartasSeleccionadasUsuario;
+      const grupoHTML = esRecibida ? contenedorCartasRecibidas : contenedorMisCartas;
+
+      const yaSeleccionada = div.classList.contains("seleccionada");
+      const pokeID = pokeData.id;
+
+      if (yaSeleccionada) {
+        div.classList.remove("seleccionada");
+        const index = grupo.indexOf(pokeID);
+        if (index !== -1) grupo.splice(index, 1);
+      } else {
+        if (grupo.length < MAX_CARTAS) {
+          div.classList.add("seleccionada");
+          grupo.push(pokeID);
+        } else {
+          alert("Solo puedes seleccionar hasta 5 cartas.");
+        }
+      }
+
+      validarSeleccion();
+    });
+
+    return div;
+  }
+
+  function validarSeleccion() {
+    if (cartasSeleccionadasUsuario.length > 0 && cartasSeleccionadasRecibidas.length > 0) {
+      btnIntercambio.disabled = false;
+    } else {
+      btnIntercambio.disabled = true;
+    }
+  }
+
+  for (let id of idsDesbloqueados) {
+    const poke = await obtenerPokemon(id);
+    const cartaUsuario = crearCarta(poke, false);
+    const cartaRecibida = crearCarta(poke, true);
+    contenedorMisCartas.appendChild(cartaUsuario);
+    contenedorCartasRecibidas.appendChild(cartaRecibida);
+  }
 });
