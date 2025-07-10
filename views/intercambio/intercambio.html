@@ -6,14 +6,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Intercambio de cartas</title>
         <link rel="stylesheet" href="../../shared/css/globales.css">
+        <link rel="stylesheet" href="./intercambio.css">
+        <link rel="stylesheet" href="../coleccion/coleccion.css">
     </head>
-
     <body>
+        <header>
+            <h1>Intercambio</h1>
+            <p class="subtitulo-header">Conectado con <span id="nombreConectado"></span></p>
+        </header>
+
+        <main>
+            <section id="tus-cartas">
+                <h2>Tus cartas</h2>
+                <div class="cartas-container" id="misCartas"></div>
+            </section>
+
+            <section id="cartas-recibidas">
+                <h2>Cartas del otro usuario</h2>
+                <div class="cartas-container" id="cartasRecibidas"></div>
+            </section>
+
+            <div class="boton-intercambio-contenedor">
+                <button id="btnIntercambio" class="boton-intercambio" disabled>¡Proponer Intercambio!</button>
+            </div>
+        </main>
+
         <nav class="nav-inferior">
             <a href="../../index.html" class="nav-link" data-page="coleccion">Colección</a>
             <a href="../sobres/sobres.html" class="nav-link" data-page="sobres">Sobres</a>
             <a href="../intercambio/intercambio.html" class="nav-link" data-page="intercambio">Intercambio</a>
         </nav>
+
         <script src="../../shared/js/navbar.js"></script>   
+        <script src="./intercambio.js"></script>
+        <script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+        
     </body>
 </html>
