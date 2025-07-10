@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="../coleccion/coleccion.css">
     </head>
     <body>
-        <header>
+        <header> 
             <h1>Intercambio</h1>
-            <p class="subtitulo-header">Conectado con <span id="nombreConectado"></span></p>
+            <p id="infoConexion">Esperando conexión...</p>
         </header>
 
         <main>
@@ -37,9 +37,42 @@
             <a href="../intercambio/intercambio.html" class="nav-link" data-page="intercambio">Intercambio</a>
         </nav>
 
+       <dialog id="modalResumen" class="modal oculto">
+            <article class="modal-contenido">
+                <header>
+                <h2>Confirmar Intercambio</h2>
+                <p>¿Estás seguro de realizar este intercambio?</p>
+                </header>
+
+                <section class="resumen-intercambio-vertical">
+                <div class="bloque-resumen">
+                    <h3>Entregas:</h3>
+                    <div id="cartasEntregadas" class="cartas-grid"></div>
+                </div>
+
+                <div class="flechas-vertical">
+                    <span>⇅</span>
+                </div>
+
+                <div class="bloque-resumen">
+                    <h3>Recibes:</h3>
+                    <div id="cartasRecibidasResumen" class="cartas-grid"></div>
+                </div>
+                </section>
+
+                <footer class="botones-modal">
+                <button id="btnCancelarResumen" class="cancelar">Cancelar</button>
+                <button id="btnConfirmarResumen" class="confirmar">Confirmar</button>
+                </footer>
+            </article>
+        </dialog>
+
+
+
+
         <script src="../../shared/js/navbar.js"></script>   
+        <script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
         <script src="./intercambio.js"></script>
-        
         
     </body>
 </html>
