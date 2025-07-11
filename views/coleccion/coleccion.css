@@ -201,7 +201,7 @@ main{
     padding-block: 1rem;
     text-transform: capitalize;
     overflow: hidden;
-    transition: 0.2s;
+    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
 
    
 }
@@ -223,6 +223,7 @@ main{
 .pokemon-imagen img{
     width: 100%;
     max-width: 6rem;
+    filter: drop-shadow(0 4px 16px #ffffffc0);
 }
 
 .pokemon-info{
