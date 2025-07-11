@@ -1,8 +1,12 @@
+*{
+  font-family: 'Rubik', sans-serif;
+}
 body {
   background: var(--clr-gray);
   font-family: sans-serif;
   margin: 0;
-  padding-bottom: 5rem; /* espacio para el nav fijo */
+  /* espacio para el nav fijo */
+  padding-bottom: 5rem; 
   color: white;
 }
 
@@ -13,7 +17,8 @@ main {
 section {
   margin-bottom: 2rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.15); /* fondo diferenciado */
+  /* fondo diferenciado */
+  background: rgba(255, 255, 255, 0.15); 
   border-radius: 1rem;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
@@ -37,13 +42,24 @@ section h2 {
   border-radius: 1rem;
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
   justify-items: center;
 }
 
+@media (min-width: 600px) {
+  .cartas-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
 
-/* Ocultar scroll en Chrome/Firefox */
+@media (min-width: 900px) {
+  .cartas-container {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+
 .cartas-container::-webkit-scrollbar {
   width: 0;
 }
@@ -53,8 +69,9 @@ section h2 {
 
 /* Carta Pokémon */
 .carta {
-  width: 90px;
+  width: 100%;
   height: 120px;
+  max-width: 100px; /* o el valor que uses */
   border: 2px solid transparent;
   border-radius: 1rem;
   background: white;
@@ -66,8 +83,20 @@ section h2 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-align: center;
+  font-weight: 500;
 }
 
+.carta p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
+}
 .carta img {
   max-width: 100%;
   height: 60px;

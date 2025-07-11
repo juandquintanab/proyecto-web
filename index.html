@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
         <title>Mi Coleccion</title>
         <link rel="stylesheet" href="./views/coleccion/coleccion.css">
 
@@ -37,11 +39,9 @@
                     <li class="nav-item"><button class="btn btn-header bug" id="bug">Bug</button></li>
                     <li class="nav-item"><button class="btn btn-header rock" id="rock">Rock</button></li>
                     <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Ghost</button></li>
-                    <li class="nav-item"><button class="btn btn-header dark" id="dark">Dark</button></li>
                     <li class="nav-item"><button class="bth btn-header dragon" id="dragon">Dragon</button></li>
                     <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
                     <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
-                    <li class="nav-item"><button class="btn btn-header stellar" id="stella">Stellar</button></li>
                 </ul>
             </nav>   
             
@@ -105,12 +105,35 @@
             </div>
         </div>
 
-
+        <!--
         <nav class="nav-inferior">
             <a href="./index.html" class="nav-link" data-page="coleccion">Colección</a>
             <a href="./views/sobres/sobres.html" class="nav-link" data-page="sobres">Sobres</a>
             <a href="./views/intercambio/intercambio.html" class="nav-link" data-page="intercambio">Intercambio</a>
+        </nav>-->
+        <nav class="nav-inferior" aria-label="Navegación inferior">
+            <ul class="nav-lista">
+                <li>
+                <a href="./index.html" class="nav-link" data-page="coleccion">
+                    <i class="fas fa-list-ul"></i>
+                    <span class="texto-link">Colección</span>
+                </a>
+                </li>
+                <li>
+                <a href="./views/sobres/sobres.html" class="nav-link" data-page="sobres">
+                    <i class="fas fa-box-open"></i>
+                    <span class="texto-link">Sobres</span>
+                </a>
+                </li>
+                <li>
+                <a href="./views/intercambio/intercambio.html" class="nav-link" data-page="intercambio">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span class="texto-link">Intercambio</span>
+                </a>
+                </li>
+            </ul>
         </nav>
+                    
 
         <script src="./shared/js/navbar.js"></script>
         <script src="./views/coleccion/coleccion.js"></script>

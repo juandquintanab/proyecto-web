@@ -13,7 +13,7 @@
   const cerrarModalBtn = document.getElementById("cerrarModal");
 
 //hace la carga inicial, con un ciclo for que reocrre los 150 primeros
-for(let i=1; i<=150; i++){
+/*for(let i=1; i<=150; i++){
     fetch(URL+i)
         .then((response) => response.json())
         .then(data => {
@@ -22,6 +22,22 @@ for(let i=1; i<=150; i++){
             // Guarda para búsqueda, se usa para lo de la barra de busqueda
             todosLosPokemones.push(data);  
         })  
+}*/
+
+async function cargarPokemonesOrdenados() {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150&offset=0");
+  const data = await res.json();
+  
+  const urls = data.results.map(p => p.url); // Extrae las URLs ordenadas
+
+  const pokemones = await Promise.all(
+    urls.map(url => fetch(url).then(res => res.json()))
+  );
+
+  pokemones.forEach(poke => {
+    mostrarPokemon(poke);
+    todosLosPokemones.push(poke);
+  });
 }
 
 function mostrarPokemon(poke) {
@@ -107,7 +123,7 @@ botonesHeader.forEach(boton => boton.addEventListener("click",(event)=>{
   const botonId = event.currentTarget.id;
   listaPokemon.innerHTML="";
 
-  for(let i=1; i<=150;i++){
+  /*for(let i=1; i<=150;i++){
     fetch(URL+i)
       .then((response) => response.json())
       .then(data => {
@@ -121,6 +137,14 @@ botonesHeader.forEach(boton => boton.addEventListener("click",(event)=>{
           }
         }    
       })
+  }*/
+ if (botonId === "vtodos") {
+    mostrarPokemones(todosLosPokemones);
+  } else {
+    const filtrados = todosLosPokemones.filter(poke =>
+      poke.types.some(t => t.type.name.includes(botonId))
+    );
+    mostrarPokemones(filtrados);
   }
 }));
 
@@ -232,3 +256,5 @@ function actualizarProgresoColeccion() {
   porcentajeTexto.textContent = `${porcentaje}%`;
 
 }
+
+cargarPokemonesOrdenados(); // Ejecuta la carga inicial en orden

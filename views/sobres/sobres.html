@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../../shared/css/globales.css">
   <link rel="stylesheet" href="./sobres.css" />
   <link rel="stylesheet" href="../coleccion/coleccion.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <header>
@@ -34,11 +35,34 @@
 
   </main>
 
-    <nav class="nav-inferior">
-         <a href="../../index.html" class="nav-link" data-page="coleccion">Colección</a>
+    <!--
+        <nav class="nav-inferior">
+            <a href="../../index.html" class="nav-link" data-page="coleccion">Colección</a>
             <a href="../sobres/sobres.html" class="nav-link" data-page="sobres">Sobres</a>
             <a href="../intercambio/intercambio.html" class="nav-link" data-page="intercambio">Intercambio</a>
-    </nav>
+        </nav>-->
+        <nav class="nav-inferior" aria-label="Navegación inferior">
+            <ul class="nav-lista">
+                <li>
+                <a href="../../index.html" class="nav-link" data-page="coleccion">
+                    <i class="fas fa-list-ul"></i>
+                    <span class="texto-link">Colección</span>
+                </a>
+                </li>
+                <li>
+                <a href="../sobres/sobres.html" class="nav-link" data-page="sobres">
+                    <i class="fas fa-box-open"></i>
+                    <span class="texto-link">Sobres</span>
+                </a>
+                </li>
+                <li>
+                <a href="../intercambio/intercambio.html" class="nav-link" data-page="intercambio">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span class="texto-link">Intercambio</span>
+                </a>
+                </li>
+            </ul>
+        </nav>
 
     <script src="../../shared/js/navbar.js"></script>
     <script src="./sobres.js"></script>
